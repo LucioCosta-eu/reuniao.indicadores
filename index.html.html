@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparativo de Materiais para Sacadas</title>
+  <style>
+    /* Reset e estilos gerais */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f5f5;
+      padding: 20px;
+      max-width: 100%;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      max-width: 100%;
+    }
+    
+    /* Estilos para o cabeçalho */
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    h1 {
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    
+    h2 {
+      font-size: 18px;
+      color: #666;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+    
+    /* Estilos de seção */
+    .section {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    
+    h3 {
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: #444;
+    }
+    
+    /* Layout da sidebar */
+    .sidebar {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Layout da área principal */
+    .main-content {
+      width: 75%;
+    }
+    
+    /* Tabelas */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+      table-layout: fixed;
+    }
+    
+    th {
+      background-color: #f0f0f0;
+      padding: 10px 8px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: bold;
+      color: #555;
+      text-transform: uppercase;
+    }
+    
+    td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+    
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    /* Cores para os materiais */
+    .vidro {
+      color: #097969;
+      font-weight: bold;
+    }
+    
+    .acrilico {
+      color: #0066cc;
+      font-weight: bold;
+    }
+    
+    .material-cell {
+      font-weight: bold;
+    }
+    
+    /* Estatísticas */
+    .stats {
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+    
+    .stats-acrilico {
+      background-color: #e6f2ff;
+      border: 1px solid #cce5ff;
+    }
+    
+    .stats-vidro {
+      background-color: #e6f7f2;
+      border: 1px solid #ccefe5;
+    }
+    
+    .stat-value {
+      font-size: 24px;
+      font-weight: bold;
+      display: block;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      text-align: center;
+      font-size: 14px;
+      display: block;
+    }
+    
+    /* Progress bar */
+    .progress-container {
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      height: 20px;
+      margin: 15px 0;
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background-color: #0066cc;
+      border-radius: 10px 0 0 10px;
+    }
+    
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    /* Lista de características */
+    .feature-list {
+      list-style-type: none;
+      margin-left: 5px;
+    }
+    
+    .feature-list li {
+      padding: 6px 0;
+      position: relative;
+      padding-left: 20px;
+      font-size: 14px;
+    }
+    
+    .feature-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #097969;
+    }
+    
+    .acrilico-list li:before {
+      color: #0066cc;
+    }
+    
+    .note {
+      font-size: 12px;
+      color: #666;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+      font-style: italic;
+    }
+    
+    /* Hover effects */
+    tbody tr:hover {
+      background-color: #f0f7ff;
+    }
+    
+    tr.vidro-row:hover {
+      background-color: #e6f7f2;
+    }
+    
+    tr.acrilico-row:hover {
+      background-color: #e6f2ff;
+    }
+    
+    /* Estilo para impressão */
+    @media print {
+      body {
+        padding: 0;
+        background-color: white;
+      }
+      
+      .container, .section {
+        box-shadow: none;
+      }
+      
+      .section {
+        break-inside: avoid;
+      }
+      
+      tr.vidro-row, tr.acrilico-row {
+        break-inside: avoid;
+      }
+      
+      .page-break {
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Comparativo de Materiais para Sacadas</h1>
+    <h2>Análise de Vidro Temperado 10mm vs. Acrílico 8mm</h2>
+  </header>
+  
+  <div class="container">
+    <!-- Painel lateral esquerdo -->
+    <div class="sidebar">
+      <!-- Resumo estatístico -->
+      <div class="section">
+        <h3>Resumo Comparativo</h3>
+        
+        <div class="stats stats-acrilico">
+          <span class="stat-value">40%</span>
+          <span class="stat-label">Condições favorecem <span class="acrilico">Acrílico 8mm</span></span>
+        </div>
+        
+        <div class="stats stats-vidro">
+          <span class="stat-value">60%</span>
+          <span class="stat-label">Condições favorecem <span class="vidro">Vidro Temperado 10mm</span></span>
+        </div>
+        
+        <div class="progress-container">
+          <div class="progress-bar" style="width: 40%"></div>
+        </div>
+        
+        <div class="progress-label">
+          <span>Acrílico 8mm</span>
+          <span>Vidro Temperado 10mm</span>
+        </div>
+      </div>
+      
+      <!-- Características principais -->
+      <div class="section">
+        <h3>Vantagens do Vidro Temperado</h3>
+        <ul class="feature-list">
+          <li>Obrigatório em prédios de grande altura (normas NBR)</li>
+          <li>Resistente a temperaturas até 300°C</li>
+          <li>Fragmentação segura em pequenos pedaços</li>
+          <li>Alta resistência a riscos e abrasão</li>
+          <li>Não amarela com exposição UV</li>
+          <li>Melhor clareza óptica e transparência</li>
+          <li>Durabilidade de 15-20 anos</li>
+          <li>Resistente à corrosão e salinidade</li>
+          <li>Maior estabilidade contra ventos</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h3>Vantagens do Acrílico</h3>
+        <ul class="feature-list acrilico-list">
+          <li>62% mais leve (9,6 kg/m² vs 25 kg/m²)</li>
+          <li>30-40% mais barato que vidro equivalente</li>
+          <li>Melhor isolamento acústico</li>
+          <li>Superior isolamento térmico</li>
+          <li>Pode ser cortado/adaptado no local</li>
+          <li>Melhor dispersão da luz (translúcido)</li>
+          <li>Disponível em versões coloridas</li>
+        </ul>
+        
+        <div class="note">
+          * Análise completa com 15 condições diferentes de uso.
+        </div>
+      </div>
+    </div>
+    
+    <!-- Conteúdo principal (tabela) -->
+    <div class="main-content">
+      <div class="section">
+        <h3>Análise Detalhada por Condição</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%">Condição</th>
+              <th style="width: 20%">Material Recomendado</th>
+              <th style="width: 25%">Justificativa</th>
+              <th style="width: 30%">Detalhes Importantes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="vidro-row">
+              <td>Prédios residenciais de grande altura</td>
+              <td class="material-cell vidro">Vidro temperado 10mm</td>
+              <td>Obrigatório por normas de segurança (NBR 7199, NBR 14718)</td>
+              <td>Em altura, o modo de fragmentação segura do vidro temperado é crucial</td>
+            </tr>
+            <tr class="acrilico-row">
+              <td>Estruturas com limitação de peso/carga</td>
+              <td class="material-cell acrilico">Acrílico 8mm</td>
+              <td>62% mais leve que o vidro temperado (9,6 kg/m² vs 25 kg/m²)</td>
+              <td>Ideal para estruturas mais antigas ou com restrições estruturais</td>
+            </tr>
+            <tr class="vidro-row">
+              <td>Regiões com exposição intensa ao sol</td>
+              <td class="material-cell vidro">Vidro temperado 10mm</td>
+              <td>Não amarela, resistente a temperaturas até 300°C</td>
+              <td>O acrílico pode deformar e perder transparência com exposição prolongada ao UV</td>
+            </tr>
+            <tr class="acrilico-row">
+              <td>Orçamento limitado</td>
+              <td class="material-cell acrilico">Acrílico 8mm</td>
+              <td>30-40% mais barato que o vidro temperado equivalente</td>
+              <td>Considerar o custo a longo prazo: o vidro dura 2x mais</td>
+            </tr>
+            <tr class="vidro-row">
+              <td>Ambientes com crianças</td>
+              <td class="material-cell vidro">Vidro temperado 10mm</td>
+              <td>Fragmentação em pequenos pedaços sem bordas cortantes</td>
+              <td>Mesmo sendo mais resistente a impactos, o modo de quebra do acrílico pode ser perigoso</td>
+            </tr>
+            <tr class="acrilico-row">
+              <td>Áreas urbanas com alto nível de ruído</td>
+              <td class="material-cell acrilico">Acrílico 8mm</td>
+              <td>Melhor isolamento acústico, atende NBR 10151</td>
+              <td>Reduz significativamente a poluição sonora externa</td>
+            </tr>
+            <tr class="acrilico-row">
+              <td>Regiões com clima muito frio</td>
+              <td class="material-cell acrilico">Acrílico 8mm</td>
+              <td>Melhor isolamento térmico (0,19 W/m·K vs 1,0 W/m·K do vidro)</td>
+              <td>Reduz custos com aquecimento e proporciona maior conforto térmico</td>
+            </tr>
+            <tr class="vidro-row">
+              <td>Próximo a áreas de churrasco/cozinha externa</td>
+              <td class="material-cell vidro">Vidro temperado 10mm</td>
+              <td>Alta resistência a produtos químicos e gordura</td>
+              <td>O acrílico pode ser danificado por álcool, solventes e alguns produtos de limpeza</td>
+            </tr>
+            <tr class="acrilico-row">
+              <td>Locais de difícil acesso para instalação</td>
+              <td class="material-cell acrilico">Acrílico 8mm</td>
+              <td>Mais leve e pode ser cortado/adaptado no local</td>
+              <td>O vidro temperado requer corte prévio em fábrica, sem possibilidade de ajustes no local</td>
+            </tr>
+            <tr class="vidro-row">
+              <td>Sacadas com uso frequente/intenso</td>
+              <td class="material-cell vidro">Vidro temperado 10mm</td>
+              <td>Alta resistência a riscos e abrasão</td>
+              <td>O acrílico risca facilmente com o uso cotidiano</td>
+            </tr>
+            <tr class="vidro-row">
+              <td>Regiões litorâneas com alta salinidade</td>
+              <td class="material-cell vidro">Vidro temperado 10mm</td>
+              <td>Resistente à corrosão e não degrada com sal</td>
+              <td>Requer ferragens em aço inox para evitar oxidação</td>
+            </tr>
+            <tr class="acrilico-row">
+              <td>Necessidade de privacidade visual</td>
+              <td class="material-cell acrilico">Acrílico 8mm translúcido</td>
+              <td>Melhor dispersão da luz sem comprometer luminosidade</td>
+              <td>Também disponível em versões coloridas ou texturizadas</td>
+            </tr>
+            <tr class="vidro-row">
+              <td>Valorização estética/visual da paisagem</td>
+              <td class="material-cell vidro">Vidro temperado 10mm</td>
+              <td>Melhor clareza óptica e mantém transparência ao longo do tempo</td>
+              <td>Ideal para vistas panorâmicas sem distorção</td>
+            </tr>
+            <tr class="vidro-row">
+              <td>Projeto com longa vida útil esperada</td>
+              <td class="material-cell vidro">Vidro temperado 10mm</td>
+              <td>Durabilidade de 15-20 anos vs 8-10 anos do acrílico</td>
+              <td>Melhor custo-benefício a longo prazo, apesar do investimento inicial maior</td>
+            </tr>
+            <tr class="vidro-row">
+              <td>Regiões sujeitas a fortes ventos</td>
+              <td class="material-cell vidro">Vidro temperado 10mm</td>
+              <td>Menor deflexão sob pressão do vento, mais estabilidade</td>
+              <td>Requer estrutura e fixação adequadas conforme cálculo de cargas de vento</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="note">
+          <strong>Conclusão:</strong> O vidro temperado 10mm é recomendado para a maioria das aplicações em sacadas (60% das condições), especialmente em situações que exigem durabilidade, resistência e segurança. O acrílico 8mm é indicado para situações específicas (40% das condições), como quando há limitações de peso, necessidade de isolamento térmico/acústico, restrições orçamentárias, ou locais de difícil acesso para instalação.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
