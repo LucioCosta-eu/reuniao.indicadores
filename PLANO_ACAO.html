@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arremate de Reunião - Plano de Ação</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        
+        .main-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .topic {
+            background-color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            border-left: 5px solid var(--secondary-color);
+        }
+        
+        .topic h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .topic h3 i {
+            margin-right: 12px;
+            color: var(--secondary-color);
+            width: 30px;
+            text-align: center;
+        }
+        
+        .topic h4 {
+            color: var(--primary-color);
+            margin-top: 20px;
+            font-size: 1.2em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            position: relative;
+        }
+        
+        ul li {
+            list-style-type: none;
+            padding-left: 28px;
+        }
+        
+        ul li:before {
+            content: "\f138";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        
+        ol li {
+            padding-left: 10px;
+        }
+        
+        .action-item {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .special-note {
+            background-color: #fef9e7;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            border-left: 4px solid #f39c12;
+            display: flex;
+            align-items: center;
+        }
+        
+        .special-note i {
+            font-size: 24px;
+            color: #f39c12;
+            margin-right: 15px;
+        }
+        
+        .signature-area {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .signature-box {
+            flex-basis: 30%;
+            min-width: 200px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .signature-line {
+            width: 100%;
+            border-top: 1px solid #333;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        
+        .signature-title {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .next-steps {
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin: 30px 0;
+        }
+        
+        .next-steps h3 {
+            color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .next-steps ol {
+            margin-bottom: 0;
+        }
+        
+        .next-steps li {
+            margin-bottom: 15px;
+        }
+        
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .info-card {
+            flex: 1 1 300px;
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .info-card h3 {
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        
+        .info-card i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+                background-color: white;
+            }
+            
+            .main-container {
+                box-shadow: none;
+                padding: 0;
+            }
+            
+            .topic, .info-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            
+            .next-steps {
+                background: white;
+                border: 1px solid #ddd;
+                color: black;
+            }
+            
+            .next-steps h3 {
+                color: var(--primary-color);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1><i class="fas fa-clipboard-check"></i> Encerramento de Apresentação</h1>
+        
+        <div class="card-container">
+            <div class="info-card">
+                <h3><i class="fas fa-wind"></i> Caixa de Ar</h3>
+                <p>Padronização do processo de venda e melhorias contratuais para maior clareza nas especificações técnicas.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><i class="fas fa-ruler-combined"></i> Cálculo de Perfis</h3>
+                <p>Novos critérios técnicos para verificação em vendas garantindo segurança e conformidade.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><i class="fas fa-drafting-compass"></i> Projetos Executivos</h3>
+                <p>Aprimoramento da documentação e implementação de ferramentas de visualização dinâmica.</p>
+            </div>
+        </div>
+        
+        <h2><i class="fas fa-tasks"></i> Plano de Ação - Resumo Executivo</h2>
+        <p>Este documento define os planos de ação para três áreas principais que requerem melhorias em nossos processos: Caixa de Ar, Cálculo de Perfis e Projetos Executivos. As decisões e próximos passos foram acordados para implementação imediata.</p>
+        
+        <div class="topic">
+            <h3><i class="fas fa-wind"></i> Plano de Ação - Caixa de Ar</h3>
+            
+            <h4>Padronização do Processo de Venda</h4>
+            <ul>
+                <li><span class="action-item">Condensadora existente:</span> Documentar marca e potência, com cláusula contratual específica a ser implementada</li>
+                <li><span class="action-item">Condensadora inexistente:</span> Assinatura de termo de sub-etapa com aditivo de prazo contratual</li>
+            </ul>
+            
+            <h4>Alterações Contratuais</h4>
+            <ul>
+                <li>Inclusão de cláusula que estabelece modelo padrão em caso de não-resposta do cliente</li>
+            </ul>
+            
+            <h4>Melhorias de Interação</h4>
+            <ul>
+                <li>Implementação de arquivo ilustrativo interativo (vídeo e QR code conforme Anexo C)</li>
+            </ul>
+            
+            <div class="special-note">
+                <i class="fas fa-exclamation-circle"></i>
+                <div>
+                    <p><strong>Ação prioritária:</strong> Desenvolvimento das cláusulas contratuais para ambos os cenários de condensadoras.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="topic">
+            <h3><i class="fas fa-ruler-combined"></i> Plano de Ação - Cálculo de Perfis</h3>
+            
+            <h4>Novos Critérios de Verificação em Vendas</h4>
+            <ul>
+                <li>Coberturas com vãos livres acima de 1,5 a 2m</li>
+                <li>Guarda-corpo</li>
+                <li>Passarelas</li>
+                <li>Fechamentos acima de 6m</li>
+                <li>Vidros com 6mm ou menos para coberturas</li>
+            </ul>
+            
+            <div class="special-note">
+                <i class="fas fa-exclamation-circle"></i>
+                <div>
+                    <p><strong>Ação prioritária:</strong> Implementação imediata destes critérios no processo de verificação de vendas.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="topic">
+            <h3><i class="fas fa-drafting-compass"></i> Plano de Ação - Projetos Executivos</h3>
+            
+            <h4>Melhorias de Documentação e Acompanhamento</h4>
+            <ul>
+                <li>Inclusão de detalhamento de montagem anexo ao projeto ou workflow</li>
+                <li>Implementação de linha de tempo do cronograma no próprio projeto</li>
+                <li>Criação de campo de visualização dinâmica acessível ao cliente e aos técnicos</li>
+            </ul>
+            
+            <div class="special-note">
+                <i class="fas fa-lightbulb"></i>
+                <div>
+                    <p><strong>Benefício esperado:</strong> Redução significativa de dúvidas e melhor acompanhamento do projeto pelo cliente.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="next-steps">
+            <h3><i class="fas fa-forward"></i> Próximos Passos</h3>
+            <ol>
+                <li>Elaboração das cláusulas contratuais para o processo de Caixa de Ar</li>
+                <li>Criação de template para o arquivo ilustrativo interativo</li>
+                <li>Atualização do checklist de vendas com os novos critérios de verificação</li>
+                <li>Desenvolvimento do sistema de visualização dinâmica para projetos executivos</li>
+                <li>Revisão do processo de detalhamento de montagem</li>
+            </ol>
+        </div>
+        
+        <div class="signature-area">
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <p class="signature-title">Responsável pelo Projeto</p>
+            </div>
+            
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <p class="signature-title">Gerente de Operações</p>
+            </div>
+            
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <p class="signature-title">Diretor</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
