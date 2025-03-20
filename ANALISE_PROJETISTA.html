@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo de Vida de Projetos - Análise de Alocação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            color: #005e8a;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #005e8a;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .overallocated {
+            background-color: #ffdddd;
+            font-weight: bold;
+        }
+        .phase {
+            background-color: #e6f2ff;
+            font-weight: bold;
+        }
+        .chart-container {
+            margin-top: 30px;
+            overflow-x: auto;
+        }
+        .chart {
+            min-width: 800px;
+            height: 400px;
+        }
+        .analysis {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .resource-analysis {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .resource-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ciclo de Vida de Projetos - SAN Planos</h1>
+        
+        <h2>Estrutura Analítica de Projeto (EAP)</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tarefa</th>
+                    <th>Duração</th>
+                    <th>Predecessores</th>
+                    <th>Recursos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="phase">
+                    <td>1</td>
+                    <td>CICLO DE VIDA ATUAL - PROJETOS</td>
+                    <td>8,6 dias</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="phase">
+                    <td>2</td>
+                    <td>PROJETOS - ETAPA 01</td>
+                    <td>8,6 dias</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Preenchimento de controles, ficha de medição no sistema e distribuição de demanda para o projetista com as documentações necessárias</td>
+                    <td>0,3 dias</td>
+                    <td></td>
+                    <td>Bianca</td>
+                </tr>
+                <tr class="phase">
+                    <td>4</td>
+                    <td>FINANCEIRO - ETAPA 02</td>
+                    <td>0,1 dias</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Sinalização de faturamento</td>
+                    <td>0,1 dias</td>
+                    <td></td>
+                    <td>Janaina;Patricia;Bianca</td>
+                </tr>
+                <tr class="phase">
+                    <td>6</td>
+                    <td>PROJETOS - ETAPA 02</td>
+                    <td>3,6 dias</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Conferência do contrato para verificar se possui todas as informações necessárias p/ agendamento da medição e futuro projeto</td>
+                    <td>0,3 dias</td>
+                    <td>5SS</td>
+                    <td>Augusto;Bianca</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Verificação disponibilidade do cliente e compatibilizar data no cronograma do medidor</td>
+                    <td>0,3 dias</td>
+                    <td>7</td>
+                    <td>Bianca</td>
+                </tr>
+                <tr class="phase">
+                    <td>9</td>
+                    <td>Projetista</td>
+                    <td>3 dias</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="overallocated">
+                    <td>10</td>
+                    <td>Agendamento e medição + Elaboração de projeto</td>
+                    <td>3 dias</td>
+                    <td>8</td>
+                    <td>Augusto</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Elaboração de projeto executivo atual</td>
+                    <td>2 dias</td>
+                    <td>10SS</td>
+                    <td>Bianca;Jennifer;Lorena</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Envio do projeto por email com demais informações para formalização da aprovação</td>
+                    <td>1 dia</td>
+                    <td>11</td>
+                    <td>Augusto</td>
+                </tr>
+                <tr class="phase">
+                    <td>13</td>
+                    <td>COMERCIAL - ETAPA 02</td>
+                    <td>3 dias</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Análise e validação</td>
+                    <td>2 dias</td>
+                    <td>12SS</td>
+                    <td>Cliente</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Aprovação formal em resposta ao email</td>
+                    <td>1 dia</td>
+                    <td>14</td>
+                    <td>Cliente</td>
+                </tr>
+                <tr class="phase">
+                    <td>16</td>
+                    <td>PROJETOS - ETAPA 03</td>
+                    <td>3 dias</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>Encaminhamento de todos arquivos pertinentes ao projeto para o setor, checklist, formulario de medição, padronização, dwg e demais informações</td>
+                    <td>1 dia</td>
+                    <td>15</td>
+                    <td>Bianca;Augusto</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>Análise de projetos, enquadramentos, padronizações, materiais, etc.</td>
+                    <td>1 dia</td>
+                    <td>17</td>
+                    <td>Bianca</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>Descida de lotes e liberação para análise de compras</td>
+                    <td>1 dia</td>
+                    <td>18</td>
+                    <td>Bianca</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="analysis">
+            <h2>Análise de Superalocação do Projetista (Augusto)</h2>
+            
+            <div class="resource-analysis">
+                <div class="resource-card">
+                    <h3>Alocação de Augusto no Ciclo de Vida</h3>
+                    <ul>
+                        <li>Tarefa 7: Conferência do contrato - 0,3 dias</li>
+                        <li>Tarefa 10: Agendamento, medição e elaboração de projeto - 3 dias</li>
+                        <li>Tarefa 12: Envio do projeto por email - 1 dia</li>
+                        <li>Tarefa 17: Encaminhamento de arquivos - 1 dia (compartilhado com Bianca)</li>
+                    </ul>
+                    <p><strong>Total de dias alocados por projeto:</strong> 4,3 dias</p>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>Superalocação Identificada</h3>
+                    <p>A tarefa crítica para superalocação é a <strong>Tarefa 10: Agendamento, medição e elaboração do projeto</strong> com duração de 3 dias. Como essa tarefa exige presença in loco para medição, o projetista não pode trabalhar em múltiplos projetos simultaneamente durante esta etapa.</p>
+                    <p>Considerando que:</p>
+                    <ul>
+                        <li>Um mês de trabalho tem aproximadamente 22 dias úteis</li>
+                        <li>Cada projeto exige 4,3 dias de dedicação do projetista</li>
+                        <li>A tarefa 10 (3 dias) não pode ser paralelizada</li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>Capacidade Mensal de Projetos</h3>
+                    <p><strong>Cálculo de capacidade base:</strong></p>
+                    <p>22 dias úteis / 4,3 dias por projeto = 5,12 projetos</p>
+                    
+                    <table style="width: 100%; margin-top: 15px; border-collapse: collapse;">
+                        <thead>
+                            <tr>
+                                <th style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #005e8a; color: white;">Estimativa</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #005e8a; color: white;">Projetos/Mês</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #005e8a; color: white;">Considerações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffdddd;"><strong>Pessimista</strong></td>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #ffdddd;"><strong>4 projetos</strong></td>
+                                <td style="border: 1px solid #ddd; padding: 8px; background-color: #ffdddd;">
+                                    <ul style="margin: 0; padding-left: 20px;">
+                                        <li>Imprevistos em 15% do tempo (reuniões, outros projetos)</li>
+                                        <li>Eventuais retrabalhos em medições</li>
+                                        <li>Complexidade maior em alguns projetos</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; background-color: #e6f2ff;"><strong>Mais provável</strong></td>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #e6f2ff;"><strong>5 projetos</strong></td>
+                                <td style="border: 1px solid #ddd; padding: 8px; background-color: #e6f2ff;">
+                                    <ul style="margin: 0; padding-left: 20px;">
+                                        <li>Dedicação de 100% do tempo às tarefas do ciclo</li>
+                                        <li>Complexidade padrão dos projetos</li>
+                                        <li>Pequena margem para imprevistos (5%)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; background-color: #ddffdd;"><strong>Otimista</strong></td>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center; background-color: #ddffdd;"><strong>6 projetos</strong></td>
+                                <td style="border: 1px solid #ddd; padding: 8px; background-color: #ddffdd;">
+                                    <ul style="margin: 0; padding-left: 20px;">
+                                        <li>Otimização de processos de medição</li>
+                                        <li>Projetos menos complexos que a média</li>
+                                        <li>Agendamentos eficientes que reduzem tempo de deslocamento</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p style="margin-top: 15px;"><strong>Média ponderada (PERT):</strong> (4 + 4*5 + 6)/6 = 5 projetos/mês</p>
+                </div>
+            </div>
+
+            <h3>Análise de Erros e Retrabalho</h3>
+            <div class="resource-card" style="width: 100%; margin-bottom: 20px;">
+                <h4>Impacto de Retrabalhos na Capacidade</h4>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                    <thead>
+                        <tr>
+                            <th style="border: 1px solid #ddd; padding: 8px; background-color: #005e8a; color: white;">Taxa de Retrabalho</th>
+                            <th style="border: 1px solid #ddd; padding: 8px; background-color: #005e8a; color: white;">Tempo Adicional</th>
+                            <th style="border: 1px solid #ddd; padding: 8px; background-color: #005e8a; color: white;">Impacto na Capacidade</th>
+                            <th style="border: 1px solid #ddd; padding: 8px; background-color: #005e8a; color: white;">Projetos por Mês</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">5%</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">0,22 dias/projeto</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">4,3 → 4,52 dias/projeto</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">4,87 projetos</td>
+                        </tr>
+                        <tr style="background-color: #fff8e6;">
+                            <td style="border: 1px solid #ddd; padding: 8px;"><strong>10%</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 8px;"><strong>0,43 dias/projeto</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 8px;"><strong>4,3 → 4,73 dias/projeto</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 8px;"><strong>4,65 projetos</strong></td>
+                        </tr>
+                        <tr style="background-color: #ffeeee;">
+                            <td style="border: 1px solid #ddd; padding: 8px;"><strong>20%</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 8px;"><strong>0,86 dias/projeto</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 8px;"><strong>4,3 → 5,16 dias/projeto</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 8px;"><strong>4,26 projetos</strong></td>
+                        </tr>
+                        <tr style="background-color: #ffdddd;">
+                            <td style="border: 1px solid #ddd; padding: 8px;"><strong>30%</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 8px;"><strong>1,29 dias/projeto</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 8px;"><strong>4,3 → 5,59 dias/projeto</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 8px;"><strong>3,93 projetos</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="resource-card" style="width: 100%; margin-bottom: 20px;">
+                <h4>Causas Comuns de Erros e Retrabalhos</h4>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                    <thead>
+                        <tr>
+                            <th style="border: 1px solid #ddd; padding: 8px; background-color: #005e8a; color: white;">Causa</th>
+                            <th style="border: 1px solid #ddd; padding: 8px; background-color: #005e8a; color: white;">Fase Afetada</th>
+                            <th style="border: 1px solid #ddd; padding: 8px; background-color: #005e8a; color: white;">Impacto</th>
+                            <th style="border: 1px solid #ddd; padding: 8px; background-color: #005e8a; color: white;">Mitigação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Informações incompletas no contrato</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Tarefa 7</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Médio</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Checklist detalhado de informações necessárias</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Medições imprecisas</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Tarefa 10</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Alto</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Equipamentos de medição mais precisos, protocolo padronizado</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Alterações solicitadas pelo cliente</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Tarefas 14-15</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Alto</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Aprovações parciais durante o processo, comunicação proativa</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Padronização incorreta</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Tarefa 18</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Médio</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Bibliotecas padronizadas, revisão por pares</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Recomendações para Otimização</h3>
+            <ol>
+                <li>Considerar adicionar outro projetista para aumentar a capacidade de projetos mensais</li>
+                <li>Analisar possibilidade de reduzir o tempo de agendamento e medição (Tarefa 10)</li>
+                <li>Avaliar possibilidade de paralelizar algumas atividades com assistentes</li>
+                <li>Implementar sistema de revisão por pares para reduzir a taxa de retrabalho</li>
+                <li>Criar procedimentos padronizados para medições e documentação</li>
+                <li>Estabelecer um processo de verificação preventiva em pontos críticos do projeto</li>
+            </ol>
+        </div>
+
+
+    </div>
+</body>
+</html>
