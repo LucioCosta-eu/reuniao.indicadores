@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análise com Ênfase no Processo de Projetos</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .p-6 {
+      padding: 1.5rem;
+    }
+    .bg-white {
+      background-color: white;
+    }
+    .text-2xl {
+      font-size: 1.5rem;
+    }
+    .font-bold {
+      font-weight: bold;
+    }
+    .mb-6 {
+      margin-bottom: 1.5rem;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .bg-blue-50 {
+      background-color: #eff6ff;
+    }
+    .border {
+      border: 1px solid;
+    }
+    .border-blue-200 {
+      border-color: #bfdbfe;
+    }
+    .rounded-lg {
+      border-radius: 0.5rem;
+    }
+    .p-5, .p-4 {
+      padding: 1.25rem;
+    }
+    .mb-8 {
+      margin-bottom: 2rem;
+    }
+    .text-xl {
+      font-size: 1.25rem;
+    }
+    .font-semibold {
+      font-weight: 600;
+    }
+    .text-blue-800 {
+      color: #1e40af;
+    }
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+    .flex {
+      display: flex;
+    }
+    .items-center {
+      align-items: center;
+    }
+    .mr-2 {
+      margin-right: 0.5rem;
+    }
+    .grid {
+      display: grid;
+    }
+    .grid-cols-1 {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .gap-6 {
+      gap: 1.5rem;
+    }
+    .border-blue-100 {
+      border-color: #dbeafe;
+    }
+    .font-medium {
+      font-weight: 500;
+    }
+    .text-lg {
+      font-size: 1.125rem;
+    }
+    .mb-3 {
+      margin-bottom: 0.75rem;
+    }
+    .text-blue-700 {
+      color: #1d4ed8;
+    }
+    .text-sm {
+      font-size: 0.875rem;
+    }
+    .text-green-700 {
+      color: #15803d;
+    }
+    .list-disc {
+      list-style-type: disc;
+    }
+    .pl-5 {
+      padding-left: 1.25rem;
+    }
+    .mb-1 {
+      margin-bottom: 0.25rem;
+    }
+    .flex-col {
+      flex-direction: column;
+    }
+    .bg-blue-100 {
+      background-color: #dbeafe;
+    }
+    .text-blue-800 {
+      color: #1e40af;
+    }
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .py-2 {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .w-64 {
+      width: 16rem;
+    }
+    .h-6 {
+      height: 1.5rem;
+    }
+    .border-l-2 {
+      border-left-width: 2px;
+    }
+    .border-blue-300 {
+      border-color: #93c5fd;
+    }
+    .bg-green-100 {
+      background-color: #dcfce7;
+    }
+    .text-green-800 {
+      color: #166534;
+    }
+    .border-green-300 {
+      border-color: #86efac;
+    }
+    .overflow-x-auto {
+      overflow-x: auto;
+    }
+    .min-w-full {
+      min-width: 100%;
+    }
+    .border-collapse {
+      border-collapse: collapse;
+    }
+    .bg-gray-100 {
+      background-color: #f3f4f6;
+    }
+    .text-left {
+      text-align: left;
+    }
+    .bg-yellow-50 {
+      background-color: #fefce8;
+    }
+    .border-yellow-200 {
+      border-color: #fef08a;
+    }
+    .grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .gap-4 {
+      gap: 1rem;
+    }
+    .bg-green-50 {
+      background-color: #f0fdf4;
+    }
+    .border-green-200 {
+      border-color: #bbf7d0;
+    }
+    .bg-purple-50 {
+      background-color: #faf5ff;
+    }
+    .border-purple-200 {
+      border-color: #e9d5ff;
+    }
+    .text-purple-700 {
+      color: #7e22ce;
+    }
+    
+    /* Media queries para responsividade */
+    @media (min-width: 768px) {
+      .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .md\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    
+    /* Adicionais para o fluxo vertical */
+    .flow-item {
+      margin-bottom: 1.5rem;
+      position: relative;
+      text-align: center;
+    }
+    .vertical-line {
+      height: 2rem;
+      width: 2px;
+      background-color: #93c5fd;
+      margin: 0 auto;
+    }
+    .green-vertical-line {
+      height: 2rem;
+      width: 2px;
+      background-color: #86efac;
+      margin: 0 auto;
+    }
+    .table-responsive {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f3f4f6;
+      font-weight: 600;
+    }
+    tr:nth-child(odd) {
+      background-color: #f9fafb;
+    }
+  </style>
+</head>
+<body>
+  <div class="p-6 bg-white">
+    <h1 class="text-2xl font-bold mb-6 text-center">Análise com Ênfase no Processo de Projetos</h1>
+    
+    <!-- Destaque da Medição Antecipada -->
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-5 mb-8">
+      <h2 class="text-xl font-semibold text-blue-800 mb-4 flex items-center">
+        <span class="mr-2">📏</span> Transformação na Medição: O Pilar da Nova EAP
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-lg p-4 border border-blue-100">
+          <h3 class="font-medium text-lg mb-3 text-blue-700">Antes: Pré-medição Conferencial</h3>
+          <p class="text-sm mb-3">Coletar informações básicas para proposta</p>
+          
+          <h4 class="font-medium mb-2 text-sm">Dados Coletados:</h4>
+          <ul class="list-disc pl-5 mb-4">
+            <li class="text-sm mb-1">Dimensões aproximadas dos vãos</li>
+            <li class="text-sm mb-1">Necessidades básicas do cliente</li>
+            <li class="text-sm mb-1">Informações para pré-projeto</li>
+          </ul>
+          
+          <h4 class="font-medium mb-2 text-sm">Limitações:</h4>
+          <ul class="list-disc pl-5">
+            <li class="text-sm mb-1">Não permite início do projeto executivo</li>
+            <li class="text-sm mb-1">Exige nova medição completa após contrato</li>
+            <li class="text-sm mb-1">Informações insuficientes para outros setores</li>
+            <li class="text-sm mb-1">Foco apenas na viabilidade comercial</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-lg p-4 border border-blue-100">
+          <h3 class="font-medium text-lg mb-3 text-green-700">Depois: Medição Total Antecipada</h3>
+          <p class="text-sm mb-3">Coletar todas as informações técnicas para projeto completo</p>
+          
+          <h4 class="font-medium mb-2 text-sm">Dados Coletados:</h4>
+          <ul class="list-disc pl-5 mb-4">
+            <li class="text-sm mb-1">Dimensões precisas de todos os vãos</li>
+            <li class="text-sm mb-1">Detalhamento de componentes necessários</li>
+            <li class="text-sm mb-1">Especificações de vidros e alumínio</li>
+            <li class="text-sm mb-1">Necessidades completas do cliente</li>
+            <li class="text-sm mb-1">Condições estruturais do local</li>
+            <li class="text-sm mb-1">Restrições técnicas para instalação</li>
+          </ul>
+          
+          <h4 class="font-medium mb-2 text-sm">Benefícios:</h4>
+          <ul class="list-disc pl-5">
+            <li class="text-sm mb-1">Elimina necessidade de segunda medição</li>
+            <li class="text-sm mb-1">Permite início imediato do anteprojeto</li>
+            <li class="text-sm mb-1">Fornece dados para posicionamento de compras e PCP</li>
+            <li class="text-sm mb-1">Antecipa identificação de desafios técnicos</li>
+            <li class="text-sm mb-1">Melhora precisão da proposta comercial</li>
+            <li class="text-sm mb-1">Reduz tempo total do ciclo do projeto</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Comparativo de Fluxo de Projeto -->
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-4">Transformação do Fluxo de Projeto</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Fluxo Atual -->
+        <div class="border rounded-lg p-4">
+          <h3 class="font-medium text-lg mb-3 text-center">Fluxo Atual: Projeto Direto</h3>
+          
+          <div class="flex flex-col items-center mb-6">
+            <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg w-64 text-center">Pré-medição</div>
+            <div class="vertical-line"></div>
+            <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg w-64 text-center">Segunda medição</div>
+            <div class="vertical-line"></div>
+            <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg w-64 text-center">Projeto executivo</div>
+            <div class="vertical-line"></div>
+            <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg w-64 text-center">Aprovação única</div>
+          </div>
+          
+          <h4 class="font-medium mb-2">Problemas Potenciais:</h4>
+          <ul class="list-disc pl-5">
+            <li class="text-sm mb-1">Descoberta tardia de problemas técnicos</li>
+            <li class="text-sm mb-1">Retrabalho significativo em caso de alterações</li>
+            <li class="text-sm mb-1">Dificuldade para incorporar feedback do cliente</li>
+            <li class="text-sm mb-1">Atraso em todo o processo em caso de alterações</li>
+          </ul>
+        </div>
+        
+        <!-- Fluxo Atualizado -->
+        <div class="border rounded-lg p-4">
+          <h3 class="font-medium text-lg mb-3 text-center">Fluxo Atualizado: Duas Etapas</h3>
+          
+          <div class="flex flex-col items-center mb-6">
+            <div class="bg-green-100 text-green-800 px-4 py-2 rounded-lg w-64 text-center">Medição antecipada</div>
+            <div class="green-vertical-line"></div>
+            <div class="bg-green-100 text-green-800 px-4 py-2 rounded-lg w-64 text-center">Anteprojeto</div>
+            <div class="green-vertical-line"></div>
+            <div class="bg-green-100 text-green-800 px-4 py-2 rounded-lg w-64 text-center">Aprovação 1</div>
+            <div class="green-vertical-line"></div>
+            <div class="bg-green-100 text-green-800 px-4 py-2 rounded-lg w-64 text-center">Projeto executivo</div>
+            <div class="green-vertical-line"></div>
+            <div class="bg-green-100 text-green-800 px-4 py-2 rounded-lg w-64 text-center">Aprovação 2</div>
+          </div>
+          
+          <h4 class="font-medium mb-2">Vantagens:</h4>
+          <ul class="list-disc pl-5">
+            <li class="text-sm mb-1">Confirmação de conceito antes do detalhamento</li>
+            <li class="text-sm mb-1">Identificação precoce de ajustes necessários</li>
+            <li class="text-sm mb-1">Envolvimento do cliente em múltiplos pontos</li>
+            <li class="text-sm mb-1">Minimização de retrabalho em fases avançadas</li>
+            <li class="text-sm mb-1">Paralelismo com outros departamentos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Detalhamento do Processo de Projeto -->
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-4">Detalhamento do Processo de Projeto</h2>
+      
+      <div class="table-responsive mb-4">
+        <table>
+          <thead>
+            <tr>
+              <th>Etapa</th>
+              <th>Duração</th>
+              <th>EAP Atual</th>
+              <th>EAP Atualizada</th>
+              <th>Principais Diferenças</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-blue-50">
+              <td class="font-medium">Medição</td>
+              <td>1 dia</td>
+              <td>Durante projetos, após contrato</td>
+              <td>Durante vendas, antes do contrato</td>
+              <td>Antecipação completa da medição detalhada</td>
+            </tr>
+            <tr>
+              <td class="font-medium">Desenvolvimento</td>
+              <td>2 + 2 dias</td>
+              <td>Projeto executivo direto (2 dias)</td>
+              <td>Anteprojeto (2 dias) + Executivo (2 dias)</td>
+              <td>Divisão em dois níveis de detalhamento</td>
+            </tr>
+            <tr class="bg-blue-50">
+              <td class="font-medium">Aprovações</td>
+              <td>2 + 1 dias</td>
+              <td>Uma aprovação final</td>
+              <td>Duas aprovações (anteprojeto e executivo)</td>
+              <td>Validação em estágios para minimizar retrabalho</td>
+            </tr>
+            <tr>
+              <td class="font-medium">Distribuição</td>
+              <td>1 dia</td>
+              <td>Após aprovação final</td>
+              <td>Parcial desde o início (0.5 dias)</td>
+              <td>Antecipação de informações para outros setores</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+        <h3 class="font-medium text-lg mb-2">Observação Importante</h3>
+        <p>Embora o tempo total dedicado ao processo de projetos permaneça o mesmo (6.9 dias), a distribuição e organização desse tempo foram transformadas significativamente. A mesma quantidade de horas de trabalho gera resultados de maior qualidade e permite paralelismo com outros departamentos.</p>
+      </div>
+    </div>
+    
+    <!-- Impactos na Qualidade, Prazo e Custo -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Impacto em Qualidade -->
+      <div class="border rounded-lg p-4 bg-green-50 border-green-200">
+        <h3 class="font-medium text-lg mb-3 text-green-700">Impacto em Qualidade</h3>
+        <p class="text-sm mb-3">Melhoria significativa na precisão e aderência às necessidades do cliente</p>
+        <ul class="list-disc pl-5">
+          <li class="text-sm mb-1">Medição mais detalhada desde o início</li>
+          <li class="text-sm mb-1">Validação em múltiplos pontos do processo</li>
+          <li class="text-sm mb-1">Maior tempo dedicado ao planejamento inicial</li>
+        </ul>
+      </div>
+      
+      <!-- Impacto em Prazo -->
+      <div class="border rounded-lg p-4 bg-blue-50 border-blue-200">
+        <h3 class="font-medium text-lg mb-3 text-blue-700">Impacto em Prazo</h3>
+        <p class="text-sm mb-3">Mesmo tempo total de projeto (6.9 dias), mas com redução global do ciclo</p>
+        <ul class="list-disc pl-5">
+          <li class="text-sm mb-1">Eliminação da necessidade de segunda medição</li>
+          <li class="text-sm mb-1">Antecipação de informações para outros setores</li>
+          <li class="text-sm mb-1">Paralelismo de atividades reduzindo caminho crítico</li>
+        </ul>
+      </div>
+      
+      <!-- Impacto em Custo -->
+      <div class="border rounded-lg p-4 bg-purple-50 border-purple-200">
+        <h3 class="font-medium text-lg mb-3 text-purple-700">Impacto em Custo</h3>
+        <p class="text-sm mb-3">Redução de custos indiretos através de menor retrabalho</p>
+        <ul class="list-disc pl-5">
+          <li class="text-sm mb-1">Diminuição de alterações em fases avançadas</li>
+          <li class="text-sm mb-1">Melhor aproveitamento dos recursos de projeto</li>
+          <li class="text-sm mb-1">Maior precisão nas especificações para compras</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

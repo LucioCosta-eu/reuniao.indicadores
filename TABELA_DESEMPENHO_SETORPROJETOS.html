@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Avaliação de Desempenho</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            font-size: 12px;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-align: center;
+        }
+        .header-quality {
+            background-color: #f8e6d9;
+        }
+        .header-deadline {
+            background-color: #e6f8d9;
+        }
+        .header-cost {
+            background-color: #d9e6f8;
+        }
+        .section-header {
+            background-color: #e6e6e6;
+            font-weight: bold;
+        }
+        .description-cell {
+            font-size: 10px;
+            text-align: left;
+            max-width: 150px;
+        }
+        .rating-cell {
+            background-color: #c2e0c2;
+        }
+        .projects-cell {
+            background-color: #f9f9f9;
+            font-size: 11px;
+            text-align: left;
+        }
+        .legend-row td {
+            font-weight: bold;
+        }
+        .optimal {
+            background-color: #c2e0c2;
+        }
+        .good {
+            background-color: #d9f0d9;
+        }
+        .medium {
+            background-color: #f0f0d9;
+        }
+        .low {
+            background-color: #f0d9d9;
+        }
+        .weak {
+            background-color: #e0c2c2;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th rowspan="2">NOME</th>
+            <th rowspan="2">CARGO/FUNÇÃO</th>
+            <th colspan="3" class="header-quality">QUALIDADE</th>
+            <th colspan="3" class="header-deadline">PRAZO</th>
+            <th colspan="3" class="header-cost">CUSTO</th>
+            <th rowspan="2">MÉDIA FINAL</th>
+        </tr>
+        <tr>
+            <th>ENTENDIMENTO DO ESCOPO DO PROJETO PARA F.P.Y.</th>
+            <th>APLICAÇÃO DAS MELHORES TÉCNICAS PARA CADA SETOR (PROJETOS, VENDAS,COMPRAS, ATENDIMENTO) - medido pelo domínio da técnica</th>
+            <th>ENTREGA FUNCIONAL DETALHADA (MEDIDO PELO ENTENDIMENTO DA EQUIPE DE OBRA)</th>
+            <th>SUPORTE RÁPIDO E ADEQUADO - RESOLUTIVO (MEDIDO PELA ENTRADA E SAÍDA DA QUANTIDADE DE CHAMADOS)</th>
+            <th>MELHORIA CONTÍNUA (MEDIDO PERIODICAMENTE AS IMPLEMENTAÇÕES DE SUGESTÕES DE MELHORIAS)</th>
+            <th>DISPONIBILIDADE PARA ENTREGAS URGENTES ACEITÁVEIS (NÃO CONTEMPLA ERROS)</th>
+            <th>ATENDIMENTO IMEDIATO</th>
+            <th>AVANÇO DE ETAPAS SUCESSIVAS DE FORMA ORDENADA E CONTROLADA POR PRAZO</th>
+            <th>CADÊNCIA NOS PROCESSOS (MEDIDO PELO DESEMPENHO MÉDIO DE ETAPAS)</th>
+            <th>NÃO RETORNO/REENVIO DE SOLICITAÇÕES, PROJETOS OU COMPONENTES DO PROCESSO</th>
+            <th>NÃO-DESPERDÍCIO DE RECURSO (INSUMOS, HORA DE TRABALHO, ENERGIA)</th>
+        </tr>
+        <tr>
+            <td class="section-header">SETOR PROJETOS</td>
+            <td class="section-header">COORD. PROJETOS</td>
+            <td>95</td>
+            <td>95</td>
+            <td>95</td>
+            <td>100</td>
+            <td>100</td>
+            <td>100</td>
+            <td>90</td>
+            <td>80</td>
+            <td>90</td>
+            <td>80</td>
+            <td class="rating-cell">93</td>
+        </tr>
+        <tr class="legend-row optimal">
+            <td>ÓTIMO</td>
+            <td>100</td>
+            <td>Completo entendimento - Progresso ok</td>
+            <td>Completo domínio - Progresso ok</td>
+            <td>Completa eficácia - Progresso ok</td>
+            <td>Adequado - Progresso razoável</td>
+            <td>Contribui plenamente - Progresso ok</td>
+            <td>Entrega rápida - progresso ok</td>
+            <td>Atendimento Rápido - Progresso ok</td>
+            <td>Completude - Progresso ok</td>
+            <td>Alta Cadência - Progresso ok</td>
+            <td>Ativo - Progresso ok</td>
+            <td>Econômico -Progresso ok</td>
+        </tr>
+        <tr class="legend-row good">
+            <td>BOM</td>
+            <td>80</td>
+            <td>Bom entendimento - Progresso ok</td>
+            <td>Bom domínio - Progresso ok</td>
+            <td>Boa Eficácia - Progresso ok</td>
+            <td>Boa adequação - progresso ok</td>
+            <td>Boa contribuição - Progresso ok</td>
+            <td>Boa velocidade - Progresso ok</td>
+            <td>Boa velocidade - Progresso ok</td>
+            <td>Boa completude - Progresso ok</td>
+            <td>boa cadência - Progresso ok</td>
+            <td>Regular - Progresso ok</td>
+            <td>Sem desperdício - Progresso ok</td>
+        </tr>
+        <tr class="legend-row medium">
+            <td>MÉDIO</td>
+            <td>60</td>
+            <td>Razoável Entendimento - Progesso razoável</td>
+            <td>Domínio Razoável - Progresso razoável</td>
+            <td>Razoável eficácia - Progresso Razoável</td>
+            <td>Média Adequação - Progresso razoável</td>
+            <td>Razoável Contribuição - Progresso razoável</td>
+            <td>Entrega razoável - Progresso razoável</td>
+            <td>Entrega razoável - Progresso razoável</td>
+            <td>Razoável completude - Progresso razoável</td>
+            <td>cadência razoável - Progresso razoável</td>
+            <td>Razoável - Progresso razoável</td>
+            <td>Atento ao desperdício - Progresso regular</td>
+        </tr>
+        <tr class="legend-row low">
+            <td>BAIXO</td>
+            <td>40</td>
+            <td>Baixo entendimento - progresso irregular</td>
+            <td>Baixo domínio - Progresso irregular</td>
+            <td>Baixa eficácia - Progresso irregular</td>
+            <td>Baixa adequação - progresso irregular</td>
+            <td>Baixa Contribuição - progresso irregular</td>
+            <td>Lento - Progresso irregular</td>
+            <td>Lento - Progresso irregular</td>
+            <td>Inconcluso - Progresso irregular</td>
+            <td>descompasso - Progresso irregular</td>
+            <td>Irregular - Progresso irregular</td>
+            <td>desatento ao desperdício - Progresso irregular</td>
+        </tr>
+        <tr class="legend-row weak">
+            <td>FRACO</td>
+            <td>20</td>
+            <td>Sem entendimento - progesso comprometido</td>
+            <td>Sem domínio - progresso comprometido</td>
+            <td>Sem eficácia - progresso comprometido</td>
+            <td>Inadequado - progresso comprometido</td>
+            <td>Não contribui - progresso comprometido</td>
+            <td>Obsoleto - progresso comprometido</td>
+            <td>Obsoleto - Progresso comprometido</td>
+            <td>Inconcluso - Progresso comprometido</td>
+            <td>completo descompasso - Progresso comprometido</td>
+            <td>Ausente - Progresso comprometido</td>
+            <td>desperdiçador - Progresso comprometido</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td colspan="12" class="description-cell">
+                <strong>Entendimento:</strong> Consideração do projetista para elaborar representação técnica adequada para execução correspondente a expectativa do cliente. (Conforme informações dadas pelo comercial, situação do local da obra e contato com o cliente no grupo de whatsapp).
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                <strong>Entendimento:</strong> Representação adequada para que não haja dúvidas na leitura do projeto, compreender solicitações de compras necessárias e consultas futuras dos atendentes de planejamento.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                <strong>Entendimento:</strong> Representação adequada para que não haja dúvidas na produção e instalação.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                <strong>Entendimento:</strong> Resposta ao esclarecimento de dúvidas e soluções de acordo com a necessidade dos setores solicitantes.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                <strong>Entendimento:</strong> Análise e proposta de melhorias para otimizar representação de projetos, etapas e tarefas decorrentes da demanda apresentada.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                <strong>Entendimento:</strong> Agilidade para atender prazos de urgência (sem comprometer andamento dos demais processos, análise de prioridades).
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                <strong>Entendimento:</strong> Paralização de tarefas em andamento para atender a solicitações externas.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                <strong>Entendimento:</strong> Controle eficaz do andamento de etapas, sendo alertados aos limites de prazo.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                <strong>Entendimento:</strong> Resultado médio sobre as etapas de prazo.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                <strong>Entendimento:</strong> Etapas posteriores a instalação, como vidros de ajuste e caixa de ar ou qualquer outra necessidade que gere retorno na obra.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                <strong>Entendimento:</strong> Projetos que geram retorno em obra.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                <strong>Obs.:</strong> Análise direcionada ao projetista que irá elaborar o projeto.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                Padronização de representações que facilitem a leitura de projeto, utilizadas por todos os projetistas.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                Padronização de representações que facilitem a leitura de projeto, utilizadas por todos os projetistas.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                Análise comportamental.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                De acordo com ocorrências relatadas pelos demais setores. Trabalho em conjunto com Qualidade.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                Gestão de equipe.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                Análise comportamental.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                Organização e gestão de projetos.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                Análise direcionada ao projetista que irá elaborar o projeto.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="description-cell">
+                Análise direcionada ao projetista que irá elaborar o projeto.
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td colspan="12" class="projects-cell">
+                <strong>Projetos considerados para análise:</strong><br>
+                WV 7519 - PÓS<br>
+                WV 8614<br>
+                WV 8104<br>
+                WV 8088<br>
+                WV 7178
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="4">LEGENDA</th>
+            <th>DESEMPENHO</th>
+            <th>QUALIDADE</th>
+            <th>PRAZO</th>
+            <th>CUSTO</th>
+        </tr>
+        <tr>
+            <td colspan="8" class="description-cell">
+                DESCRIÇÃO
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
