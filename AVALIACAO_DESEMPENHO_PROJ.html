@@ -1,0 +1,161 @@
+import React from 'react';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+
+const PerformanceChart = () => {
+  // Dados da tabela convertidos para formato adequado para o gráfico
+  const data = [
+    {
+      category: 'Entendimento do Escopo',
+      value: 95,
+      fullMark: 100,
+    },
+    {
+      category: 'Aplicação de Técnicas',
+      value: 95,
+      fullMark: 100,
+    },
+    {
+      category: 'Entrega Funcional',
+      value: 95,
+      fullMark: 100,
+    },
+    {
+      category: 'Suporte Rápido',
+      value: 100,
+      fullMark: 100,
+    },
+    {
+      category: 'Melhoria Contínua',
+      value: 100,
+      fullMark: 100,
+    },
+    {
+      category: 'Disponibilidade',
+      value: 100,
+      fullMark: 100,
+    },
+    {
+      category: 'Atendimento Imediato',
+      value: 90,
+      fullMark: 100,
+    },
+    {
+      category: 'Avanço de Etapas',
+      value: 80,
+      fullMark: 100,
+    },
+    {
+      category: 'Cadência nos Processos',
+      value: 90,
+      fullMark: 100,
+    },
+    {
+      category: 'Não Retorno/Reenvio',
+      value: 80,
+      fullMark: 100,
+    },
+    {
+      category: 'Não-Desperdício',
+      value: 90,
+      fullMark: 100,
+    },
+  ];
+
+  // Dados agrupados por categorias para gráfico de barras
+  const categoryData = [
+    {
+      name: 'Qualidade',
+      valor: Math.round((95 + 95 + 95) / 3),
+    },
+    {
+      name: 'Prazo',
+      valor: Math.round((100 + 100 + 100 + 90 + 80) / 5),
+    },
+    {
+      name: 'Custo',
+      valor: Math.round((90 + 80 + 90) / 3),
+    },
+  ];
+
+  return (
+    <div className="w-full flex flex-col items-center">
+      <h2 className="text-xl font-bold mb-6">Avaliação de Desempenho - Coordenador de Projetos</h2>
+      
+      <div className="w-full h-96 mb-8">
+        <h3 className="text-lg font-medium mb-2">Gráfico Radar - Desempenho por Indicador</h3>
+        <ResponsiveContainer width="100%" height="100%">
+          <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
+            <PolarGrid />
+            <PolarAngleAxis dataKey="category" tick={{ fill: '#333', fontSize: 12 }} />
+            <PolarRadiusAxis angle={90} domain={[0, 100]} />
+            <Radar name="Desempenho" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+            <Tooltip />
+            <Legend />
+          </RadarChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Gráfico de barras para mostrar médias por categoria */}
+      <div className="w-full h-72 mb-4">
+        <h3 className="text-lg font-medium mb-2">Médias por Categoria</h3>
+        <div className="flex justify-around h-64">
+          {categoryData.map((entry, index) => (
+            <div key={`bar-${index}`} className="flex flex-col items-center justify-end h-full w-32">
+              <div 
+                className="w-24 flex items-end justify-center" 
+                style={{ 
+                  height: `${entry.valor}%`,
+                  backgroundColor: index === 0 ? '#f8e6d9' : index === 1 ? '#e6f8d9' : '#d9e6f8',
+                  border: '1px solid #ccc',
+                  position: 'relative'
+                }}
+              >
+                <span className="absolute top-0 -mt-8 font-bold text-lg">{entry.valor}%</span>
+              </div>
+              <div className="mt-2 font-medium">{entry.name}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="w-full mt-6 p-4 border border-gray-300 rounded">
+        <h3 className="text-lg font-medium mb-2">Média Final: <span className="text-green-600 font-bold">93</span></h3>
+        <div className="flex justify-between mt-4">
+          <div className="text-center px-4">
+            <div className="w-full h-6 bg-green-500 mb-1"></div>
+            <div className="text-sm">ÓTIMO (100)</div>
+          </div>
+          <div className="text-center px-4">
+            <div className="w-full h-6 bg-green-300 mb-1"></div>
+            <div className="text-sm">BOM (80)</div>
+          </div>
+          <div className="text-center px-4">
+            <div className="w-full h-6 bg-yellow-200 mb-1"></div>
+            <div className="text-sm">MÉDIO (60)</div>
+          </div>
+          <div className="text-center px-4">
+            <div className="w-full h-6 bg-orange-200 mb-1"></div>
+            <div className="text-sm">BAIXO (40)</div>
+          </div>
+          <div className="text-center px-4">
+            <div className="w-full h-6 bg-red-300 mb-1"></div>
+            <div className="text-sm">FRACO (20)</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="w-full mt-8 text-sm">
+        <p className="font-bold">Projetos considerados para análise:</p>
+        <ul className="list-disc pl-5 mt-1">
+          <li>WV 7519 - PÓS</li>
+          <li>WV 8614</li>
+          <li>WV 8104</li>
+          <li>WV 8088</li>
+          <li>WV 7178</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default PerformanceChart;
